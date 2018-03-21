@@ -1,5 +1,6 @@
 package baardsen.twentyone.model;
 
+import java.util.Objects;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
@@ -37,6 +38,26 @@ public class Card {
 			return Optional.empty();
 
 		return Optional.of(new Card(suit.get(), rank.get()));
+	}
+
+	@Override
+	public String toString() {
+		return String.format("%s%s", suit.getCode(), rank.getCode());
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Card))
+			return false;
+		var that = (Card) obj;
+
+		return this.suit == that.suit &&
+				this.rank == that.rank;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(suit, rank);
 	}
 
 	public Suit getSuit() {

@@ -18,7 +18,7 @@ import baardsen.twentyone.model.Card;
 public class CardTest {
 
 	@TestFactory
-	public Stream<DynamicTest> fromString_validCardPattern_cardIsPresent() {
+	public Stream<DynamicTest> fromString_validCardPattern_presentOptional() {
 		var suits = Set.of("C", "H", "D", "S");
 		var ranks = Set.of(
 				"2", "3", "4", "5", "6", "7", "8",
@@ -35,7 +35,7 @@ public class CardTest {
 
 	@ParameterizedTest
 	@ValueSource(strings = {"S1", "T2", "H11", "C0"})
-	public void fromString_invalidCardPattern_cardIsNotPresent(String code) {
+	public void fromString_invalidCardPattern_emptyOptional(String code) {
 		var card = Card.fromString(code);
 		assertFalse(card.isPresent());
 	}

@@ -19,4 +19,8 @@ public enum Suit {
 		return Optional.empty();
 	}
 
+	public String getCode() {
+		return code;
+	}
+
 }

@@ -33,6 +33,10 @@ public enum Rank {
 		return Optional.empty();
 	}
 
+	public String getCode() {
+		return code;
+	}
+
 	public int getValue() {
 		return value;
 	}
