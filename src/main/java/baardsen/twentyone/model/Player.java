@@ -1,5 +1,7 @@
 package baardsen.twentyone.model;
 
+import static java.util.Collections.unmodifiableList;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +54,10 @@ public abstract class Player {
 
 	public boolean isBust() {
 		return score() > 21;
+	}
+
+	public List<Card> getCards() {
+		return unmodifiableList(cards);
 	}
 
 	protected int score() {

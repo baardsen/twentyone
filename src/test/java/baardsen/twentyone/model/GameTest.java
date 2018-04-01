@@ -67,4 +67,24 @@ class GameTest {
 		assertEquals(expected, game.dealerWon());
 	}
 
+	@Test
+	public void getSummary_deckWhereSamWins_summaryIsGeneratedDeclaringSamAsTheWinner() {
+		getSummary(
+				"SK, H10, S8, H7, H9",
+				"sam\nsam: SK, S8\ndealer: H10, H7, H9");
+	}
+
+	@Test
+	public void getSummary_deckWhereDealerWins_summaryIsGeneratedDeclaringDealerAsTheWinner() {
+		getSummary(
+				"SK, H10, S6, H5, S10",
+				"dealer\nsam: SK, S6, S10\ndealer: H10, H5");
+	}
+
+	private void getSummary(String string, String expected) {
+		var deck = Deck.fromString(string).get();
+		var game = Game.play(deck);
+		assertEquals(expected, game.getSummary());
+	}
+
 }
