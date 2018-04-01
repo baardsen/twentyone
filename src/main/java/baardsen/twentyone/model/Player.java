@@ -50,7 +50,7 @@ public abstract class Player {
 		return isBust() ? 0 : score();
 	}
 
-	protected boolean isBust() {
+	public boolean isBust() {
 		return score() > 21;
 	}
 
