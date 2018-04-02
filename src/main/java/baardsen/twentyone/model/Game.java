@@ -2,6 +2,10 @@ package baardsen.twentyone.model;
 
 import static java.util.stream.Collectors.joining;
 
+/**
+ * Given a deck of cards, this class will play a game 
+ * to completion and generate a summary.
+ */
 public class Game {
 
 	private final Deck deck;

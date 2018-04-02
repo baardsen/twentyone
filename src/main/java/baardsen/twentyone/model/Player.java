@@ -5,6 +5,11 @@ import static java.util.Collections.unmodifiableList;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Keeps track of a player's cards and contains 
+ * logic related to scoring and whether the player
+ * wants more cards.
+ */
 public abstract class Player {
 
 	private final List<Card> cards = new ArrayList<>();
