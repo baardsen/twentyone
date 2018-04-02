@@ -18,9 +18,11 @@ class FileUtilsTest {
 
 	@Test
 	public void read_nonexistentPath_emptyOptional() {
-		var content = FileUtils
-				.read("src/test/resources/does-not-exist.txt");
-		assertFalse(content.isPresent());
+		TestLoggingUtils.disableLogging(() -> {
+			var content = FileUtils
+					.read("src/test/resources/does-not-exist.txt");
+			assertFalse(content.isPresent());
+		});
 	}
 
 }

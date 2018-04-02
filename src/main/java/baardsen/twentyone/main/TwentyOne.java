@@ -21,7 +21,7 @@ public class TwentyOne {
 			}
 			deck = optDeck.get();
 		} else
-			deck = Deck.newDeck();
+			deck = Deck.random();
 		var game = Game.play(deck);
 		System.out.printf("%s\n", game.getSummary());
 	}

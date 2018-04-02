@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -18,10 +19,10 @@ import org.junit.jupiter.api.TestFactory;
 public class DeckTest {
 
 	@Test
-	public void deal_generatedDeck_hasExactly52CardsInDeck() {
-		var deck = Deck.newDeck();
+	public void random_generatedDeck_hasExactly52CardsInDeck() {
+		var deck = Deck.random();
 		IntStream.range(0, 52).forEach(i -> assertNotNull(deck.deal()));
-		assertThrows(IndexOutOfBoundsException.class, () -> deck.deal());
+		assertThrows(NoSuchElementException.class, () -> deck.deal());
 	}
 
 	@TestFactory
@@ -45,7 +46,7 @@ public class DeckTest {
 					var deck = Deck.fromString(entry.getKey()).get();
 					entry.getValue()
 							.forEach(card -> assertEquals(card, deck.deal()));
-					assertThrows(IndexOutOfBoundsException.class,
+					assertThrows(NoSuchElementException.class,
 							() -> deck.deal());
 				}));
 	}
