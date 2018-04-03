@@ -10,3 +10,8 @@ Or we can create a a jar first and then execute it:
 $ mvnw clean package
 $ java -jar target/twentyone-1.0.0.jar deck.txt
 ```
+Alternatively, I have also created runtime images that can be executed without having Java installed. These can be run by using the command corresponding to your os:
+```sh
+$ dist/linux/bin/launch deck.txt
+$ dist\windows\bin\launch.bat deck.txt
+```
