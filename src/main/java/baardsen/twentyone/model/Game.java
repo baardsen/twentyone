@@ -19,7 +19,9 @@ public class Game {
 		this.dealer = Player.dealer(this.sam);
 
 		dealInitialHands();
-		if (sam.getScore() != 21 && !dealer.isBust()) {
+		if (sam.getScore() != 21 && 
+				dealer.getScore() != 21 && 
+				!dealer.isBust()) {
 			dealCardsTo(sam);
 			dealCardsTo(dealer);
 		}

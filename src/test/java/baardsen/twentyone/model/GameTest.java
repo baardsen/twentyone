@@ -61,6 +61,11 @@ class GameTest {
 		dealerWon("SA, HA, SK, HK", false);
 	}
 
+	@Test
+	public void dealerWon_dealerStartsWith21_dealerWinsBeforeSamDrawsMoreCards() {
+		dealerWon("SA, HA, S2, HK", true);
+	}
+
 	private void dealerWon(String string, boolean expected) {
 		var deck = Deck.fromString(string).get();
 		var game = Game.play(deck);
